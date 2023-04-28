@@ -1,0 +1,12 @@
+<h1>StaticPages#home</h1>
+<%= form_tag "static_pages/home", method: :post do %>
+  <%= label_tag :flickr_id, "Flickr User ID" %>
+  <%= text_field_tag :flickr_id %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<% if @photos.present? %>
+  <% @photos.each do |photo| %>
+    <img src="<%= Flickr.url(photo) %>" alt="<%= photo["title"] %>">
+  <% end %>
+<% end %>
