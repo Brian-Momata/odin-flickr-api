@@ -5,7 +5,7 @@
   <%= submit_tag "Submit" %>
 <% end %>
 
-<% if @photos.present? %>
+<% unless @photos.nil? %>
   <% @photos.each do |photo| %>
     <img src="<%= Flickr.url(photo) %>" alt="<%= photo["title"] %>">
   <% end %>
